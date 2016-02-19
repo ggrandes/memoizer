@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,14 +63,14 @@ public class Memoizer implements InvocationHandler {
 	}
 
 	private static final Map<CacheKey, CacheValue> allocCache(final int maxSize) {
-		return new LinkedHashMap<CacheKey, CacheValue>() {
+		return Collections.synchronizedMap(new LinkedHashMap<CacheKey, CacheValue>() {
 			private static final long serialVersionUID = 42L;
 
 			@Override
 			protected boolean removeEldestEntry(java.util.Map.Entry<CacheKey, CacheValue> eldest) {
 				return size() > maxSize;
 			}
-		};
+		});
 	}
 
 	/**
