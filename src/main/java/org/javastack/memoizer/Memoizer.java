@@ -13,8 +13,15 @@ import java.util.Map;
  * Agnostic Cache for Method Invokation using Reflection
  */
 public class Memoizer implements InvocationHandler {
-	private static final int DEFAULT_CACHE_MAX_ELEMENTS = 1024;
-	private static final long DEFAULT_CACHE_EXPIRE_MILLIS = 1000L;
+	/**
+	 * Default: 1024 elements
+	 */
+	public static final int DEFAULT_CACHE_MAX_ELEMENTS = 1024;
+	/**
+	 * Default: 1000millis
+	 */
+	public static final long DEFAULT_CACHE_EXPIRE_MILLIS = 1000L; // 1 second
+
 	private final Object object;
 	private final Map<CacheKey, CacheValue> cache;
 	private final long expireMillis;
