@@ -43,11 +43,11 @@ public class Example {
 	public static void main(final String[] args) throws Throwable {
 		final int TOTAL = (int) 1e6;
 		final String TEST_TEXT = "hello world";
-		final int cacheElement = 16;
+		final int cacheElements = 1024;
 		final long cacheMillis = 1000; // 1 second
 		final SampleInterface[] samples = new SampleInterface[] {
 				new SampleSlowImpl(), //
-				(SampleInterface) Memoizer.memoize(new SampleSlowImpl(), cacheElement, cacheMillis)
+				(SampleInterface) Memoizer.memoize(new SampleSlowImpl(), cacheElements, cacheMillis)
 		};
 		//
 		long ts, diff;

@@ -46,11 +46,11 @@ public class Example {
 		final String TEST_TEXT = "hello world";
 		//
 		final SampleInterface slowCode = new SampleSlowImpl();
-		final int cacheElement = 16;
+		final int cacheElements = 1024;
 		final long cacheMillis = 1000; // 1 second
 		final SampleInterface fast = (SampleInterface) Memoizer.memoize(
 				slowCode, 
-				cacheElement, 
+				cacheElements, 
 				cacheMillis);
 		//
 		final long ts = System.currentTimeMillis();
