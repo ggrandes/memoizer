@@ -1,6 +1,6 @@
 # memoizer
 
-Agnostic Cache with Dynamic Proxies and Reflection in Java. Open Source Java project under Apache License v2.0
+Agnostic Cache with Dynamic Proxies and Reflection in Java. Open Source Java project under Apache License v2.0, do not require any external lib. 
 
 Memoize a function makes it faster by caching the return values of the function; If you call the function again with the same arguments, memoize gives you the value out of the cache, instead of letting the function compute the value all over again.
 
